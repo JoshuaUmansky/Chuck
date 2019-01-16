@@ -45,6 +45,10 @@ public class driveTrain extends Subsystem {
     //m_drive.arcadeDrive(leftInput, rightInput);
     //m_drive.tankDrive(leftInput, rightInput);
   }
+  public void TestSpin(){
+    leftFront.set(ControlMode.PercentOutput, 0.5);
+    rightFront.set(ControlMode.PercentOutput, 0.5);
+  }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
