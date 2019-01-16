@@ -30,7 +30,7 @@ public class OI {
   public OI(){
     driverXbox = new XboxController(1);
     Joystick stick = new Joystick(0);
-    Button button1 = new JoystickButton(stick, 1);
+    Button button1 = new JoystickButton(stick, 4);
     button1.whileHeld(new Spintest());
 
   }
