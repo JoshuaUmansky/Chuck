@@ -32,7 +32,7 @@ public class OI {
     Joystick stick = new Joystick(0);
     Button button1 = new JoystickButton(stick, 1);
     button1.whileHeld(new Spintest());
-    
+
   }
    
 

@@ -12,9 +12,9 @@ import frc.robot.OI;
 import frc.robot.subsystems.driveTrain;
 
 public class Spintest extends Command {
-  public static OI oi = new OI();
+  
   public static driveTrain drivetrain = new driveTrain();
-
+  public static OI oi = new OI();
   public Spintest() {
     // Use requires() here to declare subsystem dependencies
     requires(drivetrain);
