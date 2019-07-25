@@ -8,6 +8,8 @@
 package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -31,6 +33,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     CameraServer.getInstance().startAutomaticCapture();
+    Compressor compress = new Compressor();
+    compress.setClosedLoopControl(true);
   }
 
   /**
@@ -53,6 +57,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
+
   }
 
   @Override
@@ -106,6 +111,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    
   }
 
   /**

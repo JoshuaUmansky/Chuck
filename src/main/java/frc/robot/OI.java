@@ -7,11 +7,12 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+import frc.robot.commands.BallRetrieve;
+import frc.robot.commands.IntakeBack;
+import frc.robot.commands.Pullback;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -25,10 +26,22 @@ public class OI {
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber);
   public XboxController driverXbox;
-
+  DigitalInput Limitswitch;
   public OI(){
+    Limitswitch = new DigitalInput(0);
     driverXbox = new XboxController(1);
     Joystick stick = new Joystick(0);
+
+    if (driverXbox.getAButton() && !Limitswitch.get()){
+      new Pullback();      
+    }
+    
+    if (driverXbox.getBButton()){
+      new IntakeBack();
+    }
+    if (driverXbox.getYButton()){
+      new BallRetrieve();
+    }
 
   }
    
