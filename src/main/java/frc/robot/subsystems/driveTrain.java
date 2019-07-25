@@ -8,8 +8,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.Talon;
 //import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 //import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -24,30 +24,26 @@ public class driveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  private TalonSRX leftFront = new TalonSRX(RobotMap.frontLeftDrive);
-  private TalonSRX leftBack = new TalonSRX(RobotMap.backLeftDrive);
-  private TalonSRX rightFront = new TalonSRX(RobotMap.frontRightDrive);
-  private TalonSRX rightBack = new TalonSRX(RobotMap.backRightDrive);
+  private Talon leftFront = new Talon(RobotMap.frontLeftDrive);
+  private Talon leftBack = new Talon(RobotMap.backLeftDrive);
+  private Talon rightFront = new Talon(RobotMap.frontRightDrive);
+  private Talon rightBack = new Talon(RobotMap.backRightDrive);
 
   //SpeedControllerGroup left = new SpeedControllerGroup(leftFront, leftBack);
   //SpeedControllerGroup right = new SpeedControllerGroup(rightFront, rightBack);
 
   public void drive(double leftInput, double rightInput){
 
-    leftFront.set(ControlMode.PercentOutput, leftInput);
-    leftBack.set(ControlMode.PercentOutput, leftInput);
-    rightFront.set(ControlMode.PercentOutput, rightInput);
-    rightBack.set(ControlMode.PercentOutput, rightInput);
+    leftFront.set(leftInput);
+    leftBack.set(leftInput);
+    rightFront.set(rightInput);
+    rightBack.set(rightInput);
 
     //DifferentialDrive m_drive = new DifferentialDrive(left, right);
 
     //m_drive.curvatureDrive(leftInput, rightInput, false);
     //m_drive.arcadeDrive(leftInput, rightInput);
     //m_drive.tankDrive(leftInput, rightInput);
-  }
-  public void TestSpin(){
-    leftFront.set(ControlMode.PercentOutput, 0.5);
-    rightFront.set(ControlMode.PercentOutput, 0.5);
   }
   @Override
   public void initDefaultCommand() {
